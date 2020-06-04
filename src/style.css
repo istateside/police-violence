@@ -52,3 +52,9 @@ figcaption {
   margin: 1em;
   font-size: 24px;
 }
+
+@media screen and (max-width: 768px) {
+  figure {
+    max-width: 95%;
+  }
+}
