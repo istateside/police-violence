@@ -125,6 +125,9 @@ figcaption {
   left: calc(50% - 375px);
   padding: 20px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .popup-contents p:first-child {
@@ -143,9 +146,24 @@ figcaption {
 }
 
 .popup-contents,
-.popup-background {
+.popup-background,
+.popup-closer {
   opacity: 0;
   transition: opacity .2s ease-in-out, top .1s ease-in;
+}
+
+.popup-closer {
+  border: 0;
+  display: inline-flex;
+  background: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 5;
 }
 
 .is-visible .popup-contents {
@@ -154,6 +172,7 @@ figcaption {
 }
 
 .is-visible .popup-contents,
+.is-visible .popup-closer,
 .is-visible .popup-background {
   opacity: 1;
 }
@@ -161,5 +180,31 @@ figcaption {
 @media screen and (max-width: 768px) {
   figure {
     max-width: 95%;
+  }
+
+  .item {
+    padding: .25em;
+  }
+
+  .button {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
+
+  .popup-contents {
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+
+  .popup-closer {
+    color: black;
+  }
+
+  .is-visible .popup-contents {
+    top: 0;
   }
 }
